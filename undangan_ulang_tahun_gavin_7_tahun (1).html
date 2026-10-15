@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Ulang Tahun ke-7 - I Kadek Gavin Kayana Dhaneswara</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA7C11'
+                        },
+                        darkbg: '#0a0a0a',
+                        cardbg: '#141414'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-image: linear-gradient(to bottom right, #F3E5AB, #D4AF37, #AA7C11) 1;
+        }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+        }
+        .gold-glow-lg {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332709;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-100 selection:bg-gold selection:text-black">
+
+    <!-- OVERLAY HALAMAN UTAMA / BUKA UNDANGAN -->
+    <div id="welcome-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 px-6 text-center transition-all duration-700">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+        <div class="max-w-md w-full bg-cardbg border border-gold/40 rounded-2xl p-8 gold-glow-lg relative z-10">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold-light to-gold-dark flex items-center justify-center text-black font-cinzel text-3xl font-bold shadow-lg">
+                7
+            </div>
+            <p class="text-xs uppercase tracking-[0.3em] text-gold-light mb-2">Undangan Spesial Ulang Tahun</p>
+            <h1 class="font-cinzel text-2xl md:text-3xl font-bold gold-gradient-text mb-4">I Kadek Gavin Kayana Dhaneswara</h1>
+            <p class="text-gray-400 text-sm mb-8">Dengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari istimewa kami.</p>
+            
+            <button onclick="openInvitation()" class="w-full py-4 px-6 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-black font-bold rounded-xl tracking-wider uppercase text-sm hover:opacity-95 transition transform active:scale-95 shadow-lg flex items-center justify-center gap-3">
+                <i class="fa-solid fa-envelope-open-text text-lg"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- AUDIO PLAYER FLOATING BUTTON -->
+    <div id="audio-control" class="fixed bottom-6 right-6 z-40 hidden">
+        <button onclick="toggleAudio()" id="audio-btn" class="w-14 h-14 rounded-full bg-cardbg border-2 border-gold text-gold flex items-center justify-center gold-glow hover:bg-gold hover:text-black transition duration-300 shadow-2xl">
+            <i id="audio-icon" class="fa-solid fa-music text-xl animate-spin"></i>
+        </button>
+    </div>
+
+    <!-- KONTEN UTAMA UNDANGAN -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+
+        <!-- HERO SECTION -->
+        <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-900 via-black to-black">
+            <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5 text-gold text-xs uppercase tracking-[0.2em] mb-6">
+                    <i class="fa-solid fa-star text-[10px]"></i> Birthday Celebration <i class="fa-solid fa-star text-[10px]"></i>
+                </div>
+
+                <h2 class="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-400 mb-3">The 7th Birthday Of</h2>
+                
+                <h1 class="font-cinzel text-3xl sm:text-5xl md:text-6xl font-black gold-gradient-text mb-6 leading-tight">
+                    I Kadek Gavin<br>Kayana Dhaneswara
+                </h1>
+
+                <p class="text-gray-300 max-w-lg mx-auto text-sm sm:text-base mb-10 leading-relaxed font-light">
+                    "Merayakan hari ulang tahun ke-7 dengan penuh keceriaan, doa, dan kebersamaan bersama orang-orang tercinta."
+                </p>
+
+                <!-- Countdown Timer -->
+                <div class="grid grid-cols-4 gap-3 max-w-md mx-auto mb-10">
+                    <div class="bg-cardbg border border-gold/30 rounded-xl p-3 gold-glow">
+                        <span id="days" class="block font-cinzel text-2xl sm:text-3xl font-bold text-gold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">Hari</span>
+                    </div>
+                    <div class="bg-cardbg border border-gold/30 rounded-xl p-3 gold-glow">
+                        <span id="hours" class="block font-cinzel text-2xl sm:text-3xl font-bold text-gold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">Jam</span>
+                    </div>
+                    <div class="bg-cardbg border border-gold/30 rounded-xl p-3 gold-glow">
+                        <span id="minutes" class="block font-cinzel text-2xl sm:text-3xl font-bold text-gold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">Menit</span>
+                    </div>
+                    <div class="bg-cardbg border border-gold/30 rounded-xl p-3 gold-glow">
+                        <span id="seconds" class="block font-cinzel text-2xl sm:text-3xl font-bold text-gold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">Detik</span>
+                    </div>
+                </div>
+
+                <a href="#detial-acara" class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold hover:text-gold-light transition">
+                    <span>Scroll ke Detail Acara</span>
+                    <i class="fa-solid fa-chevron-down animate-bounce"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- PROFIL / TENTANG GAVIN -->
+        <section class="py-20 px-6 bg-neutral-950 relative">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gold to-gold-dark rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative bg-cardbg border border-gold/30 rounded-2xl p-6 text-center overflow-hidden">
+                        <!-- Placeholder Foto Gavin -->
+                        <div class="w-full h-80 rounded-xl overflow-hidden bg-neutral-900 relative flex items-center justify-center border border-gold/20">
+                            <img src="https://placehold.co/600x750/141414/D4AF37?text=Gavin+Kayana+7th" alt="I Kadek Gavin Kayana Dhaneswara" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center pb-6">
+                                <span class="font-cinzel text-gold text-lg tracking-widest font-bold">GAVIN KAYANA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold/30 bg-gold/5 text-gold text-xs uppercase tracking-widest mb-4">
+                        <i class="fa-solid fa-cake-candles"></i> Milestone Spesial
+                    </div>
+                    <h2 class="font-cinzel text-3xl font-bold text-white mb-4">Anak Hebat, Jagoan Kami</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Tidak terasa waktu berjalan begitu cepat. Kini jagoan kecil kami, <strong class="text-gold">I Kadek Gavin Kayana Dhaneswara</strong>, telah menginjak usia ke-7 tahun. 
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                        Kehadiran dan doa restu dari Bapak/Ibu/Saudara/i sekalian akan melengkapi kebahagiaan dan menjadi berkah tersendiri dalam hari spesial Gavin.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 border-t border-gold/20 pt-6">
+                        <div>
+                            <span class="block text-gold font-cinzel text-2xl font-bold">07</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider">Tahun Usia</span>
+                        </div>
+                        <div>
+                            <span class="block text-gold font-cinzel text-2xl font-bold">Bali</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider">Lokasi Perayaan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETAIL ACARA -->
+        <section id="detial-acara" class="py-20 px-6 bg-black relative">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold">Save The Date</span>
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold gold-gradient-text mt-2">Waktu & Tempat Acara</h2>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Kartu Waktu -->
+                <div class="bg-cardbg border border-gold/30 rounded-2xl p-8 text-center relative group hover:border-gold transition duration-300 gold-glow">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-2">Hari & Tanggal</h3>
+                    <p class="text-gold font-semibold text-lg mb-1">Minggu, 26 Oktober 2026</p>
+                    <p class="text-gray-400 text-sm mb-6">Pukul 15.00 WITA - Selesai</p>
+                    <div class="inline-block px-4 py-2 rounded-xl bg-neutral-900 border border-gold/20 text-xs text-gold-light">
+                        <i class="fa-solid fa-clock mr-1"></i> Mohon hadir tepat waktu
+                    </div>
+                </div>
+
+                <!-- Kartu Lokasi -->
+                <div class="bg-cardbg border border-gold/30 rounded-2xl p-8 text-center relative group hover:border-gold transition duration-300 gold-glow">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-2xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-2">Lokasi Perayaan</h3>
+                    <p class="text-gold font-semibold text-lg mb-1">Rumah Gavin di Gutiswa </p>
+                    <p class="text-gray-400 text-sm mb-6">Jl. Gutiswa X,G Blok B No.11 Denpasar, Bali</p>
+                    <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold/10 border border-gold text-gold hover:bg-gold hover:text-black transition text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI FOTO PLACEHOLDER -->
+        <section class="py-20 px-6 bg-neutral-950">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold">Momen Berharga</span>
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold gold-gradient-text mt-2">Galeri Gavin</h2>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-xl border border-gold/20 aspect-square bg-cardbg">
+                    <img src="https://placehold.co/400x400/141414/D4AF37?text=Gavin+1" alt="Gavin Photo 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl border border-gold/20 aspect-square bg-cardbg">
+                    <img src="https://placehold.co/400x400/141414/D4AF37?text=Gavin+2" alt="Gavin Photo 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl border border-gold/20 aspect-square bg-cardbg">
+                    <img src="https://placehold.co/400x400/141414/D4AF37?text=Gavin+3" alt="Gavin Photo 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl border border-gold/20 aspect-square bg-cardbg">
+                    <img src="https://placehold.co/400x400/141414/D4AF37?text=Gavin+4" alt="Gavin Photo 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UCAPAN & RSVP -->
+        <section class="py-20 px-6 bg-black">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold">Konfirmasi Kehadiran & Doa</span>
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold gold-gradient-text mt-2">RSVP & Ucapan</h2>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-cardbg border border-gold/30 rounded-2xl p-6 sm:p-8 gold-glow">
+                <form id="rsvp-form" onsubmit="submitRsvp(event)" class="space-y-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold mb-2">Nama Lengkap</label>
+                        <input type="text" id="guest-name" required placeholder="Masukkan nama Anda..." class="w-full bg-neutral-900 border border-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold mb-2">Konfirmasi Kehadiran</label>
+                        <select id="guest-status" class="w-full bg-neutral-900 border border-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition text-sm">
+                            <option value="Hadir">Hadir, dengan senang hati</option>
+                            <option value="Maaf, Berhalangan">Maaf, berhalangan hadir</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold mb-2">Ucapan & Doa Restu</label>
+                        <textarea id="guest-message" rows="4" required placeholder="Tuliskan doa terbaik untuk Gavin yang ke-7..." class="w-full bg-neutral-900 border border-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-black font-bold rounded-xl tracking-wider uppercase text-sm hover:opacity-95 transition shadow-lg">
+                        Kirim Ucapan & RSVP
+                    </button>
+                </form>
+
+                <!-- Daftar Ucapan Masuk -->
+                <div class="mt-12 border-t border-gold/20 pt-8">
+                    <h3 class="font-cinzel text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-comments text-gold"></i> Ucapan Tamu Undangan
+                    </h3>
+                    <div id="wishes-container" class="space-y-4 max-h-80 overflow-y-auto pr-2">
+                        <!-- Data ucapan statis awal -->
+                        <div class="bg-neutral-900 border border-gold/20 rounded-xl p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-gold text-sm">Keluarga Besar Wayan Alit</span>
+                                <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded-full border border-gold/30">Hadir</span>
+                            </div>
+                            <p class="text-gray-300 text-xs leading-relaxed">Selamat ulang tahun yang ke-7 untuk Gavin! Semoga panjang umur, jadi anak yang sholeh, cerdas, dan membanggakan keluarga.</p>
+                        </div>
+                        <div class="bg-neutral-900 border border-gold/20 rounded-xl p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-gold text-sm">Keluarga</span>
+                                <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded-full border border-gold/30">Hadir</span>
+                            </div>
+                            <p class="text-gray-300 text-xs leading-relaxed">Happy 7th Birthday jagoan Gavin! Sukses selalu dan makin rajin sekolahnya yaa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-12 px-6 bg-neutral-950 border-t border-gold/20 text-center">
+            <div class="max-w-xl mx-auto">
+                <h2 class="font-cinzel text-xl font-bold gold-gradient-text mb-2">I Kadek Gavin Kayana Dhaneswara</h2>
+                <p class="text-xs text-gray-500 uppercase tracking-[0.3em] mb-6">Terima Kasih atas Doa & Kehadirannya</p>
+                <p class="text-gray-600 text-xs">© 2026 Birthday Invitation. Crafted with elegance for Gavin's 7th Birthday.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- CUSTOM NOTIFICATION MODAL -->
+    <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 hidden">
+        <div class="bg-cardbg border border-gold rounded-2xl p-6 max-w-sm w-full text-center gold-glow">
+            <div id="modal-icon" class="w-12 h-12 mx-auto mb-4 rounded-full bg-gold/10 border border-gold flex items-center justify-center text-gold text-xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-cinzel text-lg font-bold text-white mb-2">Berhasil!</h3>
+            <p id="modal-desc" class="text-gray-300 text-xs mb-6">Terima kasih atas konfirmasi dan ucapan Anda.</p>
+            <button onclick="closeModal()" class="w-full py-2.5 bg-gold text-black font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-gold-light transition">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set target countdown date (misal: 26 Oktober 2026 jam 15:00:00)
+        const targetDate = new Date("October 26, 2026 15:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Audio simulation state
+        let isPlaying = false;
+        // Menggunakan Web Audio API sederhana untuk bunyi nada lembut sebagai latar interaktif jika tombol ditekan
+        let audioCtx = null;
+
+        function openInvitation() {
+            const overlay = document.getElementById('welcome-overlay');
+            const mainContent = document.getElementById('main-content');
+            const audioControl = document.getElementById('audio-control');
+
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                mainContent.style.opacity = '1';
+                audioControl.style.display = 'block';
+                initAudio();
+            }, 700);
+        }
+
+        function initAudio() {
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                isPlaying = true;
+                playChimeLoop();
+            } catch (e) {
+                console.log("Web Audio not supported or blocked");
+            }
+        }
+
+        function playChimeLoop() {
+            if (!isPlaying || !audioCtx) return;
+            // Simple gentle background synth chime generator
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            // Pentatonic scale frequencies in Hz
+            const notes = [523.25, 587.33, 659.25, 783.99, 880.00];
+            osc.frequency.value = notes[Math.floor(Math.random() * notes.length)];
+            
+            gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.5);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 2.5);
+
+            setTimeout(playChimeLoop, 3500);
+        }
+
+        function toggleAudio() {
+            const icon = document.getElementById('audio-icon');
+            if (isPlaying) {
+                isPlaying = false;
+                icon.className = "fa-solid fa-volume-xmark text-xl";
+                if (audioCtx && audioCtx.state === 'running') {
+                    audioCtx.suspend();
+                }
+            } else {
+                isPlaying = true;
+                icon.className = "fa-solid fa-music text-xl animate-spin";
+                if (audioCtx) {
+                    audioCtx.resume();
+                    playChimeLoop();
+                } else {
+                    initAudio();
+                }
+            }
+        }
+
+        // RSVP Form Handler
+        function submitRsvp(event) {
+            event.preventDefault();
+            const name = document.getElementById('guest-name').value;
+            const status = document.getElementById('guest-status').value;
+            const message = document.getElementById('guest-message').value;
+
+            const container = document.getElementById('wishes-container');
+            const newWish = document.createElement('div');
+            newWish.className = "bg-neutral-900 border border-gold/20 rounded-xl p-4 animate-fade-in";
+            newWish.innerHTML = `
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-gold text-sm">${escapeHtml(name)}</span>
+                    <span class="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded-full border border-gold/30">${escapeHtml(status)}</span>
+                </div>
+                <p class="text-gray-300 text-xs leading-relaxed">${escapeHtml(message)}</p>
+            `;
+            container.prepend(newWish);
+
+            // Reset form
+            document.getElementById('rsvp-form').reset();
+
+            // Show custom modal
+            showModal("Terima Kasih!", "Konfirmasi kehadiran dan ucapan Anda berhasil dikirim untuk Gavin.");
+        }
+
+        function showModal(title, desc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+</body>
+</html>
